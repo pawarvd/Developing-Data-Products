@@ -1,0 +1,55 @@
+---
+title: "Coursera Developing Data Products Week 4 Project"
+author: "V Pawar"
+date: "November 23, 2018"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Overview
+
+This is an app developed using R Studion shiny package.  The app uses diamonds dataset available in R and then interactively parses to give desired information to the user.
+
+-User selects cuts for the dimaond.
+     Quality of the cuts are: Fair, Good, Very Good, Premium, Ideal
+     
+-User selects color for the diamond
+    Diamond color are :J (worst) to D (best)
+    
+-USer selects clarity for the diamond
+    Diamond clarity is defined as: I1 (worst), SI2, SI1, VS2, VS1, VVS2, VVS1, IF (best)
+    
+-The other factors length(x), width(y), and depth(z) are not evaluated in the app
+
+## Diamonds dataset
+
+```{r}
+require(ggplot2)
+suppressMessages({library(ggplot2)})
+diamonds[1:10]
+```
+
+## Example of Plot from the App
+
+```{r }
+suppressMessages({library(ggplot2)})
+diamondsub <- subset(diamonds, cut == "Ideal" & color == "D" & clarity == "IF")
+ggplot(data = diamondsub, aes(x = carat, y = price)) + geom_point(color='red', size= 4)+geom_smooth ()+xlab("Carat")+ylab("Price")+theme_bw()
+
+```
+
+## Link to the App and code
+
+-App:
+    https://pawarvd.shinyapps.io/myappweek4project/
+
+-Github:
+    https://github.com/pawarvd/Developing-Data-Products
+
+
+
